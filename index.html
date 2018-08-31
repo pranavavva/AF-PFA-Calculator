@@ -1,20 +1,66 @@
 <!DOCTYPE html>
-  <html>
-    <head>
-      <meta charset="UTF-8">
-      <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-      <title>Hello World!</title>
+<html>
 
-      <link rel="stylesheet" type="text/css" href="node_modules/bootstrap/dist/css/bootstrap.min.css">
-    </head>
-    <body>
-      <h1>Hello World!</h1>
-      We are using node <script>document.write(process.versions.node)</script>,
-      Chrome <script>document.write(process.versions.chrome)</script>,
-      and Electron <script>document.write(process.versions.electron)</script>.
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <title>Hello World!</title>
 
-      <script src="node_modules/jquery/dist/jquery.min.js"></script>
-      <script src="node_modules/popper.js/dist/popper.min.js"></script>
-      <script src="node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
-    </body>
-  </html>
+  <link rel="stylesheet" type="text/css" href="node_modules/bootstrap/dist/css/bootstrap.min.css">
+</head>
+
+<body>
+  <div class="container-fluid">
+  <form>
+    <fieldset class="form-group" name="Cardiorespitory Endurance">
+      <legend>Cardiorespitory Endurance (1.5 mile run)</legend>
+      <label for="minutes">Minutes:</label>
+      <input type="number" id="minutes" placeholder="Minutes" class="form-control" required><br>
+      <label for="seconds">Seconds:</label>
+      <input type="number" id="seconds" placeholder="Seconds" class="form-control" required>
+    </fieldset>
+
+    <fieldset class="form-group" name="Body Composition">
+      <legend>Body Composition</legend>
+      <label for="ac">Abdomen Circle</label>
+      <input type="number" id="ac" placeholder="Abdomen Circle (inches)" class="form-control" required>
+    </fieldset>
+
+    <fieldset class="form-group" name="Muscle Fitness">
+      <legend>Muscle Fitness</legend>
+      <label for="pushups">Pushups:</label>
+      <input type="number" id="pushups" placeholder="Pushups (reps/min)" class="form-control" required><br>
+      <label for="situps">Crunches:</label>
+      <input type="number" id="crunches" placeholder="Crunches (reps/min)" class="form-control" required><br>
+    </fieldset>
+  </form>
+  <a class="btn btn-primary" id="submit" href="#results">Submit</a>
+  <br>
+  <div id="results">
+    <legend>Results</legend>
+    <p id="run-points">Run Points: 0 / 60</p>
+    <p id="ac-points">Abdomen Circle Points: 0 / 20</p>
+    <p id="pushups-points">Pushpus Points: 0 / 10</p>
+    <p id="crunches-points">Crunches Points: 0 / 10</p>
+    <hr>
+    <p id="total">Composite Score: 0 / 100</p>
+    <p id="rating">Pass / Fail</p>
+  </div>
+</div>
+
+  <script>
+    if (typeof module === 'object') {
+      window.module = module;
+      module = undefined;
+    }
+  </script>
+  <script src="node_modules/jquery/dist/jquery.min.js"></script>
+  <script src="node_modules/popper.js/dist/popper.min.js"></script>
+  <script src="node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
+  <script src="script/scripts.js"></script>
+  <script>
+    if (window.module) module = window.module;
+  </script>
+</body>
+
+</html>
