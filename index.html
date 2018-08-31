@@ -21,28 +21,28 @@
         <option value="female">Female</option>
       </select>
       <label for="age">Age</label>
-      <input type="number" id="age" placeholder="Age" class="form-control" required>
+      <input type="number" id="age" placeholder="Age" class="form-control" min="1" required>
     </fieldset>
     <fieldset class="form-group" name="Cardiorespitory Endurance">
       <legend>Cardiorespitory Endurance (1.5 mile run)</legend>
       <label for="minutes">Minutes:</label>
-      <input type="number" id="minutes" placeholder="Minutes" class="form-control" required><br>
+      <input type="number" id="minutes" placeholder="Minutes" class="form-control" min="1" required><br>
       <label for="seconds">Seconds:</label>
-      <input type="number" id="seconds" placeholder="Seconds" class="form-control" required>
+      <input type="number" id="seconds" placeholder="Seconds" class="form-control" min="1" required>
     </fieldset>
 
     <fieldset class="form-group" name="Body Composition">
       <legend>Body Composition</legend>
       <label for="ac">Abdomen Circle</label>
-      <input type="number" id="ac" placeholder="Abdomen Circle (inches)" class="form-control" required>
+      <input type="number" id="ac" placeholder="Abdomen Circle (inches)" class="form-control" min="1" required>
     </fieldset>
 
     <fieldset class="form-group" name="Muscle Fitness">
       <legend>Muscle Fitness</legend>
       <label for="pushups">Pushups:</label>
-      <input type="number" id="pushups" placeholder="Pushups (reps/min)" class="form-control" required><br>
+      <input type="number" id="pushups" placeholder="Pushups (reps/min)" class="form-control" min="1" required><br>
       <label for="situps">Crunches:</label>
-      <input type="number" id="crunches" placeholder="Crunches (reps/min)" class="form-control" required><br>
+      <input type="number" id="crunches" placeholder="Crunches (reps/min)" class="form-control" min="1" required><br>
     </fieldset>
   </form>
   <a class="btn btn-primary" id="submit" href="#results">Submit</a>
