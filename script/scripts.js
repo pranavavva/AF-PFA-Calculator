@@ -1,7 +1,24 @@
+"use strict";
+
+let $minutes = undefined;
+let $seconds = undefined;
+let $ac = undefined;
+let $pushups = undefined;
+let $crunches = undefined;
+
+let $runPoints = undefined;
+let $acPoints = undefined;
+let $pushupsPoints = undefined;
+let $crunchesPoints = undefined;
+let $total = undefined;
+let $rating = undefined;
+
 $(document).ready(() => {
     $("#submit").on("click", () => {
         getScores();
         getOutputs();
+
+        
     });
 });
 
