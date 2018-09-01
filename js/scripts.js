@@ -811,21 +811,21 @@ const calculateScores = () => {
 
         if ($ac <= 35) {
             currentScore += 20;
-        } else if ($ac == 35.5) {
+        } else if ($ac > 35 && $ac <= 36) {
             currentScore += 17.6;
-        } else if ($ac == 36) {
+        } else if ($ac > 36 && $ac <= 36.5) {
             currentScore += 17;
-        } else if ($ac == 36.5) {
+        } else if ($ac > 36.5 && $ac <= 37) {
             currentScore += 16.4;
-        } else if ($ac == 37) {
+        } else if ($ac > 37 && $ac <= 37.5) {
             currentScore += 15.8;
-        } else if ($ac == 37.5) {
+        } else if ($ac > 37.5 && $ac <= 38) {
             currentScore += 15.1;
-        } else if ($ac == 38) {
+        } else if ($ac > 38 && $ac <= 38.5) {
             currentScore += 14.4;
-        } else if ($ac == 38.5) {
+        } else if ($ac > 38.5 && $ac <= 39) {
             currentScore += 13.5;
-        } else if ($ac == 39) {
+        } else if ($ac > 39 && $ac <= 39.5) {
             currentScore += 12.6;
         } else {
             currentScore += 0;
