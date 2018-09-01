@@ -6,13 +6,15 @@ const {app, BrowserWindow} = require('electron')
   
   function createWindow () {
     // Create the browser window.
-    win = new BrowserWindow({width: 800, height: 600})
+    win = new BrowserWindow({width: 800, height: 600, show: false, backgroundColor: '#f5f5f5'})
   
     // and load the index.html of the app.
     win.loadFile('index.html')
-  
-    // Open the DevTools.
-    //win.webContents.openDevTools()
+    win.setMenu(null);
+
+    win.once('ready-to-show', () => {
+      win.show();
+    })
   
     // Emitted when the window is closed.
     win.on('closed', () => {
@@ -47,3 +49,5 @@ const {app, BrowserWindow} = require('electron')
   
   // In this file you can include the rest of your app's specific main process
   // code. You can also put them in separate files and require them here.
+
+  
