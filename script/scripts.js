@@ -38,7 +38,7 @@ $(document).ready(() => {
 });
 
 const getValues = () => {
-    $gender = $("#gender").val();
+    $gender = $("#gender").val().toString();
     $age = parseInt($("#age").val());
     $seconds = parseInt(($("#minutes").val() * 60)) + parseInt($("#seconds").val());
     $ac = parseFloat($("#ac").val());
@@ -108,10 +108,46 @@ const calculateScores = () => {
                 $rating.text("Fail");
             }
 
+
+            // RUN SCORE END
             // Update the DOM text, update the internal composite score, reset the current score
             $runPoints.text(currentScore + " / 60 ");
+            console.log("Run score: " + currentScore);
             compositeScore += currentScore;
-            currentScore = 0;
+            currentScore = 0.0;
+
+
+            // Calculate AC Points
+
+            if ($ac <= 35.0) {
+                currentScore += 20.0
+            } else if ($ac > 35.0 && $ac <= 35.5) {
+                currentScore += 17.6;
+            } else if ($ac > 35.5 && $ac <= 36.0){
+                currentScore += 17.0;
+            } else if ($ac > 36.0 && $ac <= 36.5) {
+                currentScore += 16.4;
+            } else if ($ac > 36.5 && $ac <= 37.0) {
+                currentScore += 15.8;
+            } else if ($ac > 37.0 && $ac <= 37.5) {
+                currentScore += 15.1
+            } else if ($ac > 37.5 && $ac <= 38.0) {
+                currentScore += 14.4;
+            } else if ($ac > 38.0 && $ac <= 38.5) {
+                currentScore += 13.5
+            } else if ($ac > 38.5 && $ac <= 39.0) {
+                currentScore += 12.6;
+            } else {
+                currentScore += 0.0;
+                $rating.text("Fail");
+            }
+
+            // AC SCORE END
+            // Update the DOM text, update the internal composite score, reset the current score
+            $acPoints.text(currentScore + " / 20");
+            console.log("AC Score: " + currentScore);
+            compositeScore += currentScore;
+            currentScore = 0.0;
 
         } else if ($age >= 30 && $age <= 39) {
 
