@@ -13,19 +13,26 @@ let $crunches = undefined; // Number
 /* 
  * DOM Elements
  */
-let $runPoints = undefined; // Run Points: 0 / 60
-let $acPoints = undefined; // Abdomen Circle Points: 0 / 20
-let $pushupsPoints = undefined; // Pushups Points: 0 / 10
-let $crunchesPoints = undefined; // Crunches Points: 0 / 10
-let $total = undefined; // Composite Score: 0 / 100
-let $rating = undefined; // Pass / Fail
+let $runPoints = undefined; // span // 0 / 60
+let $acPoints = undefined; // span // 0 / 20
+let $pushupsPoints = undefined; // span // 0 / 10
+let $crunchesPoints = undefined; // span // 0 / 10
+let $total = undefined; // span // 0 / 100
+let $rating = undefined; // span // Pass / Fail
+
+/*
+ * Primitive values
+ */
+let currentScore = 0.0;
+let compositeScore = 0.0;
 
 $(document).ready(() => {
     $("#submit").on("click", () => {
         console.clear();
+        currentScore = 0.0;
         getValues();
         getOutputs();
-
+        
         calculateScores();
     });
 });
@@ -59,6 +66,52 @@ const calculateScores = () => {
         if ($age < 30) {
 
             console.log("You are younger than 30");
+
+            // Calculate Run Points
+
+            if ($seconds <= 552) {
+                currentScore += 60.0;
+            } else if ($seconds >= 553 && $seconds <= 574) {
+                currentScore += 59.7;
+            } else if ($seconds >= 575 && $seconds <= 585) {
+                currentScore += 59.3;
+            } else if ($seconds >= 586 && $seconds <= 598) {
+                currentScore += 58.9;
+            } else if ($seconds >= 599 && $seconds <= 610) {
+                currentScore += 58.5;
+            } else if ($seconds >= 611 && $seconds <= 623) {
+                currentScore += 57.9;
+            } else if ($seconds >= 624 && $seconds <= 637) {
+                currentScore += 57.3;
+            } else if ($seconds >= 638 && $seconds <= 651) {
+                currentScore += 56.6;
+            } else if ($seconds >= 652 && $seconds <= 666) {
+                currentScore += 55.7;
+            } else if ($seconds >= 667 && $seconds <= 682) {
+                currentScore += 54.8;
+            } else if ($seconds >= 683 && $seconds <= 698) {
+                currentScore += 53.7;
+            } else if ($seconds >= 699 && $seconds <= 716) {
+                currentScore += 52.4;
+            } else if ($seconds >= 717 && $seconds <= 734) {
+                currentScore += 50.9;
+            } else if ($seconds >= 735 && $seconds <= 753) {
+                currentScore += 49.2;
+            } else if ($seconds >= 754 && $seconds <= 773) {
+                currentScore += 47.2;
+            } else if ($seconds >= 774 && $seconds <= 794) {
+                currentScore += 44.9;
+            } else if ($seconds >= 795 && $seconds <= 816) {
+                currentScore += 42.3;
+            } else {
+                currentScore += 0;
+                $rating.text("Fail");
+            }
+
+            // Update the DOM text, update the internal composite score, reset the current score
+            $runPoints.text(currentScore + " / 60 ");
+            compositeScore += currentScore;
+            currentScore = 0;
 
         } else if ($age >= 30 && $age <= 39) {
 
