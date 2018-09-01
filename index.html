@@ -12,53 +12,110 @@
 
 <body>
   <div class="container-fluid">
-  <form>
-    <fieldset class="form-group" name="Personal Details">
-      <legend>Personal Details</legend>
-      <label for="gender">Gender:</label>
-      <select id="gender" class="form-control" required>
-        <option value="select" selected disabled>Select...</option>
-        <option value="male">Male</option>
-        <option value="female">Female</option>
-      </select><br>
-      <label for="age">Age</label>
-      <input type="number" id="age" placeholder="Age" class="form-control" min="1" required>
-    </fieldset>
-    <fieldset class="form-group" name="Cardiorespitory Endurance">
-      <legend>Cardiorespitory Endurance (1.5 mile run)</legend>
-      <label for="minutes">Minutes:</label>
-      <input type="number" id="minutes" placeholder="Minutes" class="form-control" min="1" required><br>
-      <label for="seconds">Seconds:</label>
-      <input type="number" id="seconds" placeholder="Seconds" class="form-control" min="1" required>
-    </fieldset>
 
-    <fieldset class="form-group" name="Body Composition">
-      <legend>Body Composition</legend>
-      <label for="ac">Abdomen Circle</label>
-      <input type="number" id="ac" placeholder="Abdomen Circle (inches)" class="form-control" min="1" required>
-    </fieldset>
+    <div class="jumbotron">
+      <h1>Air Force PFA Calculator</h1>
+      <p class="lead">This calculator is an <em>unofficial</em> tool which can be used to score your Air Force Physical
+        Fitness Assessment (PFA).</p>
+      <hr>
+      <p>This calculator <em>CANNOT</em> be used for the Air Force Academy Candidate Fitness Assessment
+        (CFA). The Air Force Academy CFA is strucutered much differently than the PFA.</p>
+      <p>Getting your score is as simple as filling in your gender, age, and test results in the fields below, and
+        clicking on Submit. Your score breakdown
+        and Composite score will be shown at the bottom of the app.</p>
+    </div>
 
-    <fieldset class="form-group" name="Muscle Fitness">
-      <legend>Muscle Fitness</legend>
-      <label for="pushups">Pushups:</label>
-      <input type="number" id="pushups" placeholder="Pushups (reps/min)" class="form-control" min="1" required><br>
-      <label for="situps">Crunches:</label>
-      <input type="number" id="crunches" placeholder="Crunches (reps/min)" class="form-control" min="1" required><br>
-    </fieldset>
-  </form>
-  <a class="btn btn-primary" id="submit" href="#results">Submit</a>
-  <br>
-  <div id="results">
-    <legend>Results</legend>
-    <label for="run-points">Run Points:</label> <span id="run-points">0 / 60</span><br>
-    <label for="ac-points">Abdomen Circle Points:</label> <span id="ac-points">0 / 20</span><br>
-    <label for="pushups-points">Pushpus Points:</label> <span id="pushups-points">0 / 10</span><br>
-    <label for="crunches-points">Crunches Points:</label> <span id="crunches-points">0 / 10</span><br>
-    <hr>
-    <label for="total">Composite Score:</label> <span id="total">0 / 100</span><br>
-    <label for="rating">Rating:</label> <span id="rating">Pass / Fail</span>
+    <form id="form">
+
+      <div class="form-group row">
+        <legend class="col-sm-12">Personal Details</legend>
+        <label for="gender" class="col-sm-2 col-form-label">Gender</label>
+        <div class="col-sm-10">
+          <select id="gender" class="form-control" required>
+            <option value="select" selected disabled>Select...</option>
+            <option value="male">Male</option>
+            <option value="female">Female</option>
+          </select>
+        </div>
+      </div>
+
+      <div class="form-group row">
+        <label for="age" class="col-sm-2 col-form-label">Age</label>
+        <div class="col-sm-10">
+          <input type="number" id="age" placeholder="Age" class="form-control" min="1" required>
+        </div>
+      </div>
+
+      <div class="form-group row">
+        <legend class="col-sm-12">Cardiorespitory Endurance <small class="text-muted">1.5 Mile Run</small></legend>
+        <label class="col-sm-2 col-form-label" for="minutes">Minutes:</label>
+        <div class="col-sm-10">
+          <input type="number" id="minutes" placeholder="Minutes" class="form-control" min="1" required>
+        </div>
+      </div>
+
+      <div class="form-group row">
+        <label class="col-sm-2 col-form-label" for="seconds">Seconds:</label>
+        <div class="col-sm-10">
+          <input type="number" id="seconds" placeholder="Seconds" class="form-control" min="1" required>
+        </div>
+      </div>
+
+      <div class="form-group row">
+        <legend class="col-sm-12">Body Composition</legend>
+        <label class="col-sm-2 col-form-label" for="ac">Abdomen Circle</label>
+        <div class="col-sm-10">
+          <input type="number" id="ac" placeholder="Abdomen Circle (inches)" class="form-control" min="1" required>
+        </div>
+      </div>
+
+      <div class="form-group row">
+        <legend class="col-sm-12">Muscle Fitness</legend>
+        <label class="col-sm-2 col-form-label" for="pushups">Pushups:</label>
+        <div class="col-sm-10">
+          <input type="number" id="pushups" placeholder="Pushups (reps/min)" class="form-control" min="1" required>
+        </div>
+      </div>
+
+      <div class="form-group row">
+        <label class="col-sm-2 col-form-label" for="situps">Crunches:</label>
+        <div class="col-sm-10">
+          <input type="number" id="crunches" placeholder="Crunches (reps/min)" class="form-control" min="1" required>
+        </div>
+      </div>
+
+      <div class="form-group row">
+        <div class="col-sm-10">
+          <a class="btn btn-primary" id="submit" href="#results">Submit</a>
+        </div>
+      </div>
+
+    </form>
+
+
+
+    <br>
+    <div id="results">
+      <legend>Results</legend>
+      <label for="run-points">Run Points:</label> <span id="run-points">0 / 60</span><br>
+      <label for="ac-points">Abdomen Circle Points:</label> <span id="ac-points">0 / 20</span><br>
+      <label for="pushups-points">Pushpus Points:</label> <span id="pushups-points">0 / 10</span><br>
+      <label for="crunches-points">Crunches Points:</label> <span id="crunches-points">0 / 10</span><br>
+      <hr>
+      <label for="total">Composite Score:</label> <span id="total">0 / 100</span><br>
+      <label for="rating">Rating:</label> <span id="rating"><span class="text-success">Excellent</span> / <span class="text-success">Satisfactory</span>
+        / <span class="text-danger">Unsatifactory</span></span>
+    </div>
   </div>
-</div>
+  <div id="footer" class="footer bg-dark text-light">
+    <div class="container">
+      Neither this tool nor the author thereof is affiliated with the United States Air Force or any component of the United States Department of Defense.
+      The author of this tool cannot be held responsible for discrepancies between the composite score calculated here and the composite score calculated by
+      the administrator of your PFA. This tool is meant to be used for and only for the US Air Force Physical Fitness Assessment. The charts with which this
+      tool calculates your composite score may be found <a target="_blank" href="https://www.afpc.af.mil/Portals/70/documents/Home/AF%20Fitness%20Program/FITNESS%20CHARTS.pdf">here</a>,
+      or copy and paste this link into a browser address bar: https://www.afpc.af.mil/Portals/70/documents/Home/AF%20Fitness%20Program/FITNESS%20CHARTS.pdf 
+    </div>
+  </div>
 
   <script>
     if (typeof module === 'object') {

@@ -102,9 +102,10 @@ const calculateScores = () => {
             } else {
                 currentScore += 0;
                 $rating.text("Unsatisfactory");
+                $runPoints.addClass("text-danger");
             }
 
-            $runPoints.text(currentScore + " / 60");
+            $runPoints.text(currentScore + " / 60").addClass("text-success");
             compositeScore += currentScore;
             currentScore = 0.0;
 
@@ -172,9 +173,10 @@ const calculateScores = () => {
             } else {
                 currentScore += 0;
                 $rating.text("Unsatisfactory");
+                $pushupsPoints.addClass("text-danger");
             }
 
-            $pushupsPoints.text(currentScore + " / 10");
+            $pushupsPoints.text(currentScore + " / 10").addClass("text-success");
             compositeScore += currentScore;
             currentScore = 0.0;
 
@@ -212,9 +214,10 @@ const calculateScores = () => {
             } else {
                 currentScore += 0;
                 $rating.text("Unsatisfactory");
+                $crunchesPoints.addClass("text-danger");
             }
 
-            $crunchesPoints.text(currentScore + " / 10");
+            $crunchesPoints.text(currentScore + " / 10").addClass("text-success");
             compositeScore += currentScore;
             currentScore = 0.0;
 
@@ -258,9 +261,10 @@ const calculateScores = () => {
             } else {
                 currentScore += 0;
                 $rating.text("Unsatisfactory");
+                $runPoints.addClass("text-danger");
             }
 
-            $runPoints.text(currentScore + " / 60");
+            $runPoints.text(currentScore + " / 60").addClass("text-success");
             compositeScore += currentScore;
             currentScore = 0.0;
 
@@ -322,8 +326,9 @@ const calculateScores = () => {
             } else {
                 currentScore += 0;
                 $rating.text("Unsatisfactory");
+                $pushupsPoints.addClass("text-danger");
             }
-            $pushupsPoints.text(currentScore + " / 10");
+            $pushupsPoints.text(currentScore + " / 10").addClass("text-success");
             compositeScore += currentScore;
             currentScore = 0.0;
 
@@ -359,9 +364,10 @@ const calculateScores = () => {
             } else {
                 currentScore += 0;
                 $rating.text("Unsatisfactory");
+                $crunchesPoints.addClass("text-danger");
             }
 
-            $crunchesPoints.text(currentScore + " / 10");
+            $crunchesPoints.text(currentScore + " / 10").addClass("text-success");
             compositeScore += currentScore;
             currentScore = 0.0;
 
@@ -406,9 +412,10 @@ const calculateScores = () => {
             } else {
                 currentScore += 0;
                 $rating.text("Unsatisfactory");
+                $runPoints.addClass("text-danger");
             }
 
-            $runPoints.text(currentScore + " / 60");
+            $runPoints.text(currentScore + " / 60").addClass("text-success");
             compositeScore += currentScore;
             currentScore = 0.0;
 
@@ -458,8 +465,9 @@ const calculateScores = () => {
             } else {
                 currentScore += 0;
                 $rating.text("Unsatisfactory");
+                $pushupsPoints.addClass("text-danger");
             }
-            $pushupsPoints.text(currentScore + " / 10");
+            $pushupsPoints.text(currentScore + " / 10").addClass("text-success");
             compositeScore += currentScore;
             currentScore = 0.0;
 
@@ -497,8 +505,9 @@ const calculateScores = () => {
             } else {
                 currentScore += 0;
                 $rating.text("Unsatisfactory");
+                $crunchesPoints.addClass("text-danger");
             }
-            $crunchesPoints.text(currentScore + " / 10");
+            $crunchesPoints.text(currentScore + " / 10").addClass("text-success");
             compositeScore += currentScore;
             currentScore = 0.0;
 
@@ -542,8 +551,9 @@ const calculateScores = () => {
             } else {
                 currentScore += 0;
                 $rating.text("Unsatisfactory");
+                $runPoints.addClass("text-danger");
             }
-            $runPoints.text(currentScore + " / 60");
+            $runPoints.text(currentScore + " / 60").addClass("text-success");
             compositeScore += currentScore;
             currentScore = 0.0;
 
@@ -603,9 +613,10 @@ const calculateScores = () => {
             } else {
                 currentScore += 0;
                 $rating.text("Unsatisfactory");
+                $runPoints.addClass("text-danger");
             }
 
-            $pushupsPoints.text(currentScore + " / 10");
+            $pushupsPoints.text(currentScore + " / 10").addClass("text-success");
             compositeScore += currentScore;
             currentScore = 0.0;
 
@@ -647,8 +658,9 @@ const calculateScores = () => {
             } else {
                 currentScore += 0;
                 $rating.text("Unsatisfactory");
+                $crunchesPoints.addClass("text-danger");
             }
-            $crunchesPoints.text(currentScore + " / 10");
+            $crunchesPoints.text(currentScore + " / 10").addClass("text-success");
             compositeScore += currentScore;
             currentScore = 0.0;
 
@@ -692,9 +704,10 @@ const calculateScores = () => {
             } else {
                 currentScore += 0;
                 $rating.text("Unsatisfactory");
+                $runPoints.addClass("text-danger");
             }
 
-            $runPoints.text(currentScore + " / 60");
+            $runPoints.text(currentScore + " / 60").addClass("text-success");
             compositeScore += currentScore;
             currentScore = 0.0;
 
@@ -734,9 +747,10 @@ const calculateScores = () => {
             } else {
                 currentScore += 0;
                 $rating.text("Unsatisfactory");
+                $pushupsPoints.addClass("text-danger");
             }
 
-            $pushupsPoints.text(currentScore + " / 10");
+            $pushupsPoints.text(currentScore + " / 10").addClass("text-success");
             compositeScore += currentScore;
             currentScore = 0.0;
 
@@ -782,10 +796,11 @@ const calculateScores = () => {
             } else {
                 currentScore += 0;
                 $rating.text("Unsatisfactory");
+                $crunchesPoints.addClass("text-danger");
             }
 
 
-            $crunchesPoints.text(currentScore + " / 10");
+            $crunchesPoints.text(currentScore + " / 10").addClass("text-success");
             compositeScore += currentScore;
             currentScore = 0.0;
 
@@ -815,9 +830,10 @@ const calculateScores = () => {
         } else {
             currentScore += 0;
             $rating.text("Unsatisfactory");
+            $acPoints.addClass("text-danger");
         }
 
-        $acPoints.text(currentScore + " / 20");
+        $acPoints.text(currentScore + " / 20").addClass("text-success");
         compositeScore += currentScore;
         currentScore = 0.0;
 
@@ -866,9 +882,10 @@ const calculateScores = () => {
             } else {
                 currentScore += 0;
                 $rating.text("Unsatisfactory");
+                $runPoints.addClass("text-danger");
             }
 
-            $runPoints.text(currentScore + " / 60");
+            $runPoints.text(currentScore + " / 60").addClass("text-success");
             compositeScore += currentScore;
             currentScore = 0.0;
 
@@ -928,9 +945,10 @@ const calculateScores = () => {
             } else {
                 currentScore += 0;
                 $rating.text("Unsatisfactory");
+                $pushupsPoints.addClass("text-danger");
             }
 
-            $pushupsPoints.text(currentScore + " / 10");
+            $pushupsPoints.text(currentScore + " / 10").addClass("text-success");
             compositeScore += currentScore;
             currentScore = 0.0;
 
@@ -968,9 +986,10 @@ const calculateScores = () => {
             } else {
                 currentScore += 0;
                 $rating.text("Unsatisfactory");
+                $crunchesPoints.addClass("text-danger");
             }
 
-            $crunchesPoints.text(currentScore + " / 10");
+            $crunchesPoints.text(currentScore + " / 10").addClass("text-success");
             compositeScore += currentScore;
             currentScore = 0.0;
 
@@ -1010,9 +1029,10 @@ const calculateScores = () => {
             } else {
                 $rating.text("Unsatisfactory");
                 currentScore += 0;
+                $runPoints.addClass("text-danger");
             }
 
-            $runPoints.text(currentScore + " / 60");
+            $runPoints.text(currentScore + " / 60").addClass("text-success");
             compositeScore += currentScore;
             currentScore = 0.0;
 
@@ -1076,9 +1096,10 @@ const calculateScores = () => {
             } else {
                 currentScore += 0;
                 $rating.text("Unsatisfactory");
+                $pushupsPoints.addClass("text-danger");
             }
 
-            $pushupsPoints.text(currentScore + " / 10");
+            $pushupsPoints.text(currentScore + " / 10").addClass("text-success");
             compositeScore += currentScore;
             currentScore = 0.0;
 
@@ -1116,9 +1137,10 @@ const calculateScores = () => {
             } else {
                 currentScore += 0;
                 $rating.text("Unsatisfactory");
+                $crunchesPoints.addClass("text-danger");
             }
 
-            $crunchesPoints.text(currentScore + " / 10");
+            $crunchesPoints.text(currentScore + " / 10").addClass("text-success");
             compositeScore += currentScore;
             currentScore = 0.0;
 
@@ -1160,9 +1182,10 @@ const calculateScores = () => {
             } else {
                 currentScore += 0;
                 $rating.text("Unsatisfactory");
+                $runPoints.addClass("text-danger");
             }
 
-            $runPoints.text(currentScore + " / 60");
+            $runPoints.text(currentScore + " / 60").addClass("text-success");
             compositeScore += currentScore;
             currentScore = 0.0;
 
@@ -1218,9 +1241,10 @@ const calculateScores = () => {
             } else {
                 currentScore += 0;
                 $rating.text("Unsatisfactory");
+                $pushupsPoints.addClass("text-danger");
             }
 
-            $pushupsPoints.text(currentScore + " / 10");
+            $pushupsPoints.text(currentScore + " / 10").addClass("text-success");
             compositeScore += currentScore;
             currentScore = 0.0;
 
@@ -1260,9 +1284,10 @@ const calculateScores = () => {
             } else {
                 currentScore += 0;
                 $rating.text("Unsatisfactory");
+                $crunchesPoints.addClass("text-danger");
             }
 
-            $crunchesPoints.text(currentScore + " / 10");
+            $crunchesPoints.text(currentScore + " / 10").addClass("text-success");
             compositeScore += currentScore;
             currentScore = 0.0;
 
@@ -1299,9 +1324,10 @@ const calculateScores = () => {
             } else {
                 currentScore += 0;
                 $rating.text("Unsatisfactory");
+                $runPoints.addClass("text-danger");
             }
 
-            $runPoints.text(currentScore + " / 60");
+            $runPoints.text(currentScore + " / 60").addClass("text-success");
             compositeScore += currentScore;
             currentScore = 0.0;
 
@@ -1355,9 +1381,10 @@ const calculateScores = () => {
             } else {
                 currentScore += 0;
                 $rating.text("Unsatisfactory");
+                $pushupsPoints.addClass("text-danger");
             }
 
-            $pushupsPoints.text(currentScore + " / 10");
+            $pushupsPoints.text(currentScore + " / 10").addClass("text-success");
             compositeScore += currentScore;
             currentScore = 0.0;
 
@@ -1389,9 +1416,10 @@ const calculateScores = () => {
             } else {
                 currentScore += 0;
                 $rating.text("Unsatisfactory");
+                $crunchesPoints.addClass("text-danger");
             }
 
-            $crunchesPoints.text(currentScore + " / 10");
+            $crunchesPoints.text(currentScore + " / 10").addClass("text-success");
             compositeScore += currentScore;
             currentScore = 0.0;
 
@@ -1428,9 +1456,10 @@ const calculateScores = () => {
             } else {
                 currentScore += 0;
                 $rating.text("Unsatisfactory");
+                $runPoints.addClass("text-danger");
             }
 
-            $runPoints.text(currentScore + " / 60");
+            $runPoints.text(currentScore + " / 60").addClass("text-success");
             compositeScore += currentScore;
             currentScore = 0.0;
 
@@ -1466,9 +1495,10 @@ const calculateScores = () => {
             } else {
                 currentScore += 0;
                 $rating.text("Unsatisfactory");
+                $pushupsPoints.addClass("text-danger");
             }
 
-            $pushupsPoints.text(currentScore + " / 10");
+            $pushupsPoints.text(currentScore + " / 10").addClass("text-success");
             compositeScore += currentScore;
             currentScore = 0.0;
 
@@ -1514,9 +1544,10 @@ const calculateScores = () => {
             } else {
                 currentScore += 0;
                 $rating.text("Unsatisfactory");
+                $crunchesPoints.addClass("text-danger");
             }
 
-            $crunchesPoints.text(currentScore + " / 10");
+            $crunchesPoints.text(currentScore + " / 10").addClass("text-success");
             compositeScore += currentScore;
             currentScore = 0.0;
 
@@ -1545,8 +1576,9 @@ const calculateScores = () => {
         } else {
             currentScore += 0;
             $rating.text("Unsatisfactory");
+            $acPoints.addClass("text-danger");
         }
-        $acPoints.text(currentScore + " / 20");
+        $acPoints.text(currentScore + " / 20").addClass("text-success");
         compositeScore += currentScore;
         currentScore = 0.0;
     }
@@ -1556,20 +1588,21 @@ const calculateScores = () => {
     if (rating == "Unsatisfactory") {
         // The DOM is already updated
         // However, we will tell the user how close they were
-        $total.text(compositeScore + " / 100");
+        $total.text(compositeScore + " / 100").addClass("text-danger");
+
     } else {
 
         if (compositeScore >= 90) {
-            $rating.text("Excellent");
-            $total.text(compositeScore + " / 100")
+            $rating.text("Excellent").addClass("text-success");
+            $total.text(compositeScore + " / 100").addClass("text-success")
 
         } else if (compositeScore >= 75 && compositeScore < 90) {
-            $rating.text("Satisfactory");
-            $total.text(compositeScore + " / 100")
+            $rating.text("Satisfactory").addClass("text-success");
+            $total.text(compositeScore + " / 100").addClass("text-success")
 
         } else {
-            $rating.text("Unsatisfactory");
-            $total.text(compositeScore + " / 100")
+            $rating.text("Unsatisfactory").addClass("text-danger");
+            $total.text(compositeScore + " / 100").addClass("text-danger")
 
         }
     }

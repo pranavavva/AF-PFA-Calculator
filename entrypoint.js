@@ -3,10 +3,11 @@ const {app, BrowserWindow} = require('electron')
   // Keep a global reference of the window object, if you don't, the window will
   // be closed automatically when the JavaScript object is garbage collected.
   let win
-  
+  const screenMult = 1.3;
+
   function createWindow () {
     // Create the browser window.
-    win = new BrowserWindow({width: 800, height: 600, show: false, backgroundColor: '#f5f5f5'})
+    win = new BrowserWindow({width: 800*screenMult, height: 600*screenMult, show: false, backgroundColor: '#f5f5f5', webPreferences: {plugins: true}})
   
     // and load the index.html of the app.
     win.loadFile('index.html')
