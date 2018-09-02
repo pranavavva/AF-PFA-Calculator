@@ -4,7 +4,7 @@
   "description": "Calculate your Air Force Physical Fitness Asssessment scores. NOT to be used for the Air Force Academy Candidate Fitness Assessment.",
   "main": "entrypoint.js",
   "scripts": {
-    "test": "electron .",
+    "test": "mocha",
     "start": "electron ."
   },
   "repository": {
@@ -32,5 +32,9 @@
     "electron": "^2.0.8",
     "jquery": "^3.3.1",
     "popper.js": "^1.14.4"
+  },
+  "devDependencies": {
+    "mocha": "^5.2.0",
+    "spectron": "^4.0.0"
   }
 }
