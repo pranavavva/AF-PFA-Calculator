@@ -1,47 +1,62 @@
-const Application = require('spectron').Application
-const assert = require('assert')
-const electronPath = require('electron') // Require Electron from the binaries included in node_modules.
-const path = require('path')
+"use strict";
 
-describe('Application launch', function () {
-  this.timeout(10000)
+const Application = require("spectron").Application;
+const assert = require("assert");
+const electronPath = require("electron"); // Require Electron from the binaries included in node_modules.
+const path = require("path");
 
-  beforeEach(function () {
+const timeout = 5000;
+
+describe("Application launch", function () {
+  this.timeout(timeout);
+
+  this.beforeAll(function () {
     this.app = new Application({
-      // Your electron path can be any binary
-      // i.e for OSX an example path could be '/Applications/MyApp.app/Contents/MacOS/MyApp'
-      // But for the sake of the example we fetch it from our node_modules.
       path: electronPath,
+      args: [path.join(__dirname, "..")]
+    });
+    return this.app.start();
+  });
 
-      // Assuming you have the following directory structure
-
-      //  |__ my project
-      //     |__ ...
-      //     |__ entrypoint.js
-      //     |__ package.json
-      //     |__ index.html
-      //     |__ ...
-      //     |__ test
-      //        |__ spec.js  <- You are here! ~ Well you should be.
-
-      // The following line tells spectron to look and use the entrypoint.js file
-      // and the package.json located 1 level above.
-      args: [path.join(__dirname, '..')]
-    })
-    return this.app.start()
-  })
-
-  afterEach(function () {
+  this.afterAll(function () {
     if (this.app && this.app.isRunning()) {
-      return this.app.stop()
+      return this.app.stop();
     }
-  })
+  });
 
-  it('shows an initial window', function () {
+  it("shows an initial window", function () {
     return this.app.client.getWindowCount().then(function (count) {
-      assert.equal(count, 1)
-      // Please note that getWindowCount() will return 2 if `dev tools` are opened.
-      // assert.equal(count, 2)
-    })
-  })
-})
+      assert.equal(count, 1);
+    });
+  });
+
+  it("has correct title", function () {
+    return this.app.client.getTitle().then(function (title) {
+      assert.equal(title, "Air Force PFA Calculator");
+    });
+  });
+});
+
+describe("DOM Structure", function () {
+  this.timeout(timeout);
+
+  this.beforeAll(function () {
+    this.app = new Application({
+      path: electronPath,
+      args: [path.join(__dirname, "..")]
+    });
+    return this.app.start();
+  });
+
+  this.afterAll(function () {
+    if (this.app && this.app.isRunning()) {
+      return this.app.stop();
+    }
+  });
+
+  it("has two <link>s in <head>", function () {
+    return this.app.client.getHTML("head link").then(function (elements) {
+      assert.equal(elements.length, 2);
+    });
+  });
+});
