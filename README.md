@@ -1,6 +1,6 @@
 # AF PFA Calculator
 
-[![Build status](https://ci.appveyor.com/api/projects/status/d5fjywrlbj6s63hg?svg=true)](https://ci.appveyor.com/project/20avva/af-pfa-calculator)
+[![Build status](https://ci.appveyor.com/api/projects/status/d5fjywrlbj6s63hg?svg=true)](https://ci.appveyor.com/project/20avva/af-pfa-calculator)[![Build Status](https://travis-ci.org/20avva/AF-PFA-Calculator.svg?branch=master)](https://travis-ci.org/20avva/AF-PFA-Calculator)
 
 
 This is an unofficial tool to calculate your Air Force Physical Fitness Assessment score. It is based on the charts provided [on the Air Force's website](https://www.afpc.af.mil/Portals/70/documents/Home/AF%20Fitness%20Program/FITNESS%20CHARTS.pdf)
