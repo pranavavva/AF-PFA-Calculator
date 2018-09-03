@@ -8,6 +8,8 @@ const chaiAsPromised = require("chai-as-promised");
 
 let appPath = path.join(__dirname, "..");
 
+const timeout = 20000;
+
 global.before(function () {
   chai.should();
   chai.use(chaiAsPromised);
@@ -15,7 +17,7 @@ global.before(function () {
 
 
 describe("Application launch", function () {
-  this.timeout(10000);
+  this.timeout(timeout);
 
   this.beforeAll(function () {
     this.app = new Application({
