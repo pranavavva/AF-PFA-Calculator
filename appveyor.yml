@@ -1,13 +1,3 @@
-environment:
-  nodejs_version: "10.8.0"
-
-install:
-  - ps: Install-Product node $env:nodejs_version
-  - npm install
-
-test_script:
-  - cmd: node --version
-  - cmd: npm --version
-  - cmd: npm test
-
-build: on
+version: 1.0.{build}
+build_script:
+- sh: npm test
