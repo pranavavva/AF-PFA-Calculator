@@ -40,16 +40,4 @@ describe("Application launch", function () {
   it("has correct title", function () {
     return this.app.client.waitUntilWindowLoaded().getTitle().should.eventually.equal("Air Force PFA Calculator");
   });
-
-  it("first <link> is stylesheet", function () {
-    return this.app.client.getAttribute("head link:nth-child(4)", "rel").then(function (attr) {
-      assert.equal(attr, "stylesheet");
-    });
-  });
-
-  it("second <link> is stylesheet", function () {
-    return this.app.client.getAttribute("head link:nth-child(5)", "rel").then(function (attr) {
-      assert.equal(attr, "stylesheet");
-    });
-  });
 });
