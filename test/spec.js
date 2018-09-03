@@ -59,4 +59,16 @@ describe("DOM Structure", function () {
       assert.equal(elements.length, 2);
     });
   });
+
+  it("first <link> is stylesheet", function () {
+    return this.app.client.getAttribute("head link:nth-child(4)", "rel").then(function (attr) {
+      assert.equal(attr, "stylesheet");
+    });
+  });
+
+  it("second <link> is stylesheet", function () {
+    return this.app.client.getAttribute("head link:nth-child(5)", "rel").then(function (attr) {
+      assert.equal(attr, "stylesheet");
+    });
+  });
 });
