@@ -10,16 +10,11 @@ branches:
   only:
     - master
 
-before-script:
-  - "export DISPLAY=:99.0"
-  - "sh -e /etc/init.d/xvfb start"
-  - "sleep 20" # give xvfb some time to start
-
 script:
   - node --version
   - npm --version
   - npm install
-  - npm test
+  - xvfb-run npm test
 
 
 cache:
