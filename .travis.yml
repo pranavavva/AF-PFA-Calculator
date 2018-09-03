@@ -1,7 +1,9 @@
+os:
+  - linux
 language: node_js
 node_js:
-    - "0.12.7"
-sudo: false
+    - node
+sudo: true
 install:
     - npm install
     - export DISPLAY=':99.0'
@@ -12,3 +14,6 @@ addons:
     apt:
         packages:
             - xvfb
+cache:
+  directories:
+    - node_modules
