@@ -1,14 +1,14 @@
 language: node_js
 node_js:
-  - node
-cache:
-  directories:
-    - "node_modules"
-addons:
-    apt:
-      packages:
-        - xvfb
-  
-  install:
+    - "0.12.7"
+sudo: false
+install:
+    - npm install
     - export DISPLAY=':99.0'
     - Xvfb :99 -screen 0 1024x768x24 > /dev/null 2>&1 &
+script:
+    - npm test
+addons:
+    apt:
+        packages:
+            - xvfb
