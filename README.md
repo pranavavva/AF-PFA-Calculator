@@ -8,7 +8,7 @@ This is an unofficial tool to calculate your Air Force Physical Fitness Assessme
 
 ## Developer Instructions
 
-If you want to develop this app, and assuming you have [node.js](https://nodejs.org/en/download/) installed, follow these instructions.
+If you want to develop this app, and assuming you have [node.js](https://nodejs.org/en/download/) installed, follow these instructions
 
 ```bash
 # Clone the repo
