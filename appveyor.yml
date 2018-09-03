@@ -6,8 +6,8 @@ install:
   - npm install
 
 test_script:
-  - node --version
-  - npm --version
-  - npm test
+  - cmd: node --version
+  - cmd: npm --version
+  - cmd: npm test
 
 build: on
