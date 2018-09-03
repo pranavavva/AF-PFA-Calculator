@@ -43,3 +43,45 @@ describe("Application launch", function () {
     return this.app.client.waitUntilWindowLoaded().getTitle().should.eventually.equal("Air Force PFA Calculator");
   });
 });
+
+describe("DOM Structure", function () {
+  this.timeout(timeout);
+
+  this.beforeAll(function() {
+    this.app = new Application({
+      path: electronPath,
+      args: [appPath]
+    });
+    return this.app.start();
+  });
+
+  this.afterAll(function() {
+    if (this.app && this.app.isRunning()) {
+      return this.app.stop();
+    }
+  });
+
+  // Test Cases
+
+  it("should have two <link>s in <head>", function() {
+    let counter = 0;
+
+    if (this.app.client.getHTML("head link:nth-child(4)")) {
+      counter++;
+    }
+
+    if (this.app.client.getHTML("head link:nth-child(5)")) {
+      counter++;
+    }
+
+    return counter.should.equal(2);
+  });
+
+  it("first <link> is stylesheet", function() {
+    return this.app.client.getAttribute("head link:nth-child(4)", "rel").should.eventually.equal("stylesheet");
+  });
+
+  it("second <link> is stylesheet", function() {
+    return this.app.client.getAttribute("head link:nth-child(5)", "rel").should.eventually.equal("stylesheet");
+  });
+});
