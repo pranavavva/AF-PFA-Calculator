@@ -7,6 +7,7 @@ const path = require("path");
 
 const timeout = 5000;
 
+
 describe("Application launch", function () {
   this.timeout(timeout);
 
