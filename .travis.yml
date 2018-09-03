@@ -15,8 +15,3 @@ script:
   - npm --version
   - npm install
   - xvfb-run npm test
-
-
-cache:
-  directories:
-    - node_modules
