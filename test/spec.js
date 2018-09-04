@@ -10,11 +10,8 @@ let appPath = path.join(__dirname, "..");
 
 const timeout = 20000;
 
-global.before(function () {
-  chai.should();
-  chai.use(chaiAsPromised);
-});
-
+chai.should();
+chai.use(chaiAsPromised);
 
 describe("Application launch", function () {
   this.timeout(timeout);

@@ -5,6 +5,8 @@
   "main": "entrypoint.js",
   "scripts": {
     "test": "mocha",
+    "test:cov": "nyc instrument test/ instrumented-test/ && nyc --reporter=lcov --reporter=text-lcov --reporter=html mocha instrumented-test/*  && rm -rf instrumented-test/ coverage/ .nyc_output",
+    "coverage": "nyc instrument test/ instrumented-test/ && nyc --reporter=text-lcov mocha instrumented-test/* | coveralls && rm -rf instrumented-test/ coverage .nyc_output/",
     "start": "electron ."
   },
   "repository": {
@@ -40,6 +42,7 @@
     "istanbul": "^0.4.5",
     "mocha": "^5.2.0",
     "mocha-lcov-reporter": "^1.3.0",
+    "nyc": "^13.0.1",
     "spectron": "^4.0.0"
   }
 }

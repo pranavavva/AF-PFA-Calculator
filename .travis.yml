@@ -15,3 +15,5 @@ script:
   - npm --version
   - npm install
   - xvfb-run npm test
+
+after_success: xvfb-run npm run coverage
