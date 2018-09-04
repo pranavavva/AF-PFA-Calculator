@@ -30,6 +30,7 @@ $(document).ready(() => {
     $("#submit").on("click", () => {
         console.clear();
         currentScore = 0.0;
+        compositeScore = 0.0;
         getValues();
         getOutputs();
 
@@ -833,7 +834,8 @@ const calculateScores = () => {
             $acPoints.addClass("text-danger");
         }
 
-        $acPoints.text(currentScore + " / 20").addClass("text-success");
+        $acPoints.text(currentScore + " / 20");
+        $acPoints.addClass("text-success");
         compositeScore += currentScore;
         currentScore = 0.0;
 
