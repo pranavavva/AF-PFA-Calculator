@@ -16,7 +16,7 @@ global.before(function () {
 });
 
 
-describe("Application launch", function () {
+xdescribe("Application launch", function () {
   this.timeout(timeout);
 
   this.beforeAll(function () {
@@ -63,18 +63,10 @@ describe("DOM Structure", function () {
 
   // Test Cases
 
-  it("should have two <link>s in <head>", function() {
-    let counter = 0;
-
-    if (this.app.client.getHTML("head link:nth-child(4)")) {
-      counter++;
-    }
-
-    if (this.app.client.getHTML("head link:nth-child(5)")) {
-      counter++;
-    }
-
-    return counter.should.equal(2);
+  it("has two <link>s in <head>", function() {
+    return this.app.client.getHTML("head link").then(function(elements) {
+      assert.equal(elements.length, 2);
+    });
   });
 
   it("first <link> is stylesheet", function() {
@@ -84,4 +76,31 @@ describe("DOM Structure", function () {
   it("second <link> is stylesheet", function() {
     return this.app.client.getAttribute("head link:nth-child(5)", "rel").should.eventually.equal("stylesheet");
   });
+});
+
+describe("Calculator DOM Structure", function() {
+  this.timeout(timeout);
+
+  this.beforeAll(function() {
+    this.app = new Application({
+      path: electronPath,
+      args: [appPath]
+    });
+    return this.app.start();
+  });
+
+  this.afterAll(function() {
+    if (this.app && this.app.isRunning()) {
+      return this.app.stop();
+    }
+  });
+
+  // Test Cases
+
+  it("has 7 <select> or <input> in total", function() {
+    return this.app.client.getHTML("form select, form input").then(function (elements) {
+      assert.equal(elements.length, 7);
+    });
+  });
+
 });
