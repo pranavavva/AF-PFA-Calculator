@@ -13,7 +13,7 @@ const timeout = 20000;
 chai.should();
 chai.use(chaiAsPromised);
 
-describe("Application launch", function () {
+xdescribe("Application launch", function () {
   this.timeout(timeout);
 
   this.beforeAll(function () {
@@ -51,7 +51,7 @@ describe("Application launch", function () {
   });
 });
 
-describe("DOM Structure", function () {
+xdescribe("DOM Structure", function () {
   this.timeout(timeout);
 
   this.beforeAll(function() {
@@ -79,11 +79,11 @@ describe("DOM Structure", function () {
   });
 
   it("first <link> is stylesheet", function() {
-    return this.app.client.getAttribute("head link:nth-child(4)", "rel").should.eventually.equal("stylesheet");
+    return this.app.client.getAttribute("//HEAD/LINK[1]", "rel").should.eventually.equal("stylesheet");
   });
 
   it("second <link> is stylesheet", function() {
-    return this.app.client.getAttribute("head link:nth-child(5)", "rel").should.eventually.equal("stylesheet");
+    return this.app.client.getAttribute("//HEAD/LINK[2]", "rel").should.eventually.equal("stylesheet");
   });
 
   it("has 7 <select> or <input> in total", function() {
@@ -94,16 +94,13 @@ describe("DOM Structure", function () {
 describe("Calculator Logic", function() {
   this.timeout(timeout);
 
-  this.beforeAll(function() {
+  beforeEach(function() {
+    chaiAsPromised.transferPromiseness = this.app.transferPromiseness;
     this.app = new Application({
       path: electronPath,
       args: [appPath]
     });
     return this.app.start();
-  });
-
-  beforeEach(function () {
-    chaiAsPromised.transferPromiseness = this.app.transferPromiseness;
   });
 
   this.afterAll(function() {
@@ -112,6 +109,52 @@ describe("Calculator Logic", function() {
     }
   });
 
-  // Test Cases
+  let gender, age, minutes, seconds, ac, pushups, crunches;
+
+  it("Male, age = 30, Run Time = 9:12, AC = 31, Pushups = 67, crunches = 58; composite score = 100; rating = Excellent", function(){
+    gender = "male";
+    age = 30;
+    minutes = 9;
+    seconds = 12;
+    ac = 31;
+    pushups = 67;
+    crunches = 58;
+    return this.app.client
+      .selectByVisibleText("#gender", gender).getValue("option:checked").should.eventually.equal(gender)
+      .setValue("#age", age).getValue("#age").should.eventually.equal(age)
+      .setValue("#minutes", minutes).getValue("#minutes").should.eventually.equal(minutes)
+      .setValue("#seconds", seconds).getValue("#seconds").should.eventually.equal(seconds)
+      .setValue("#ac", ac).getValue("#ac").should.eventually.equal(ac)
+      .setValue("#pushups", pushups).getValue("#pushups").should.eventually.equal(pushups)
+      .setValue("#crunches", crunches).getValue("#crunches").should.eventually.equal(crunches)
+      .click("#submit")
+      .getText("#total").should.eventually.equal("100 / 100")
+      .getAttribute("#total", "class").should.eventually.contain("text-success")
+      .getText("#rating").should.eventually.equal("Excellent")
+      .getAttribute("#rating", "class").should.eventually.contain("text-success");
+  });
+
+  it("Male, age = 30, Run Time = 12:16, AC = 36.0, Pushups = 51, crunches = 46; composite score = 82.2; rating = Satisfactory", function(){
+    gender = "male";
+    age = 30;
+    minutes = 12;
+    seconds = 16;
+    ac = 36;
+    pushups = 51;
+    crunches = 46;
+    return this.app.client
+      .selectByVisibleText("#gender", gender).getValue("option:checked").should.eventually.equal(gender)
+      .setValue("#age", age).getValue("#age").should.eventually.equal(age)
+      .setValue("#minutes", minutes).getValue("#minutes").should.eventually.equal(minutes)
+      .setValue("#seconds", seconds).getValue("#seconds").should.eventually.equal(seconds)
+      .setValue("#ac", ac).getValue("#ac").should.eventually.equal(ac)
+      .setValue("#pushups", pushups).getValue("#pushups").should.eventually.equal(pushups)
+      .setValue("#crunches", crunches).getValue("#crunches").should.eventually.equal(crunches)
+      .click("#submit")
+      .getText("#total").should.eventually.equal("82.2 / 100")
+      .getAttribute("#total", "class").should.eventually.contain("text-success")
+      .getText("#rating").should.eventually.equal("Satisfactory")
+      .getAttribute("#rating", "class").should.eventually.contain("text-success");
+  });
 
 });
