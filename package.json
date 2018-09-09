@@ -4,7 +4,7 @@
   "description": "Calculate your Air Force Physical Fitness Asssessment scores. NOT to be used for the Air Force Academy Candidate Fitness Assessment.",
   "main": "entrypoint.js",
   "scripts": {
-    "test": "nyc mocha",
+    "test": "mocha",
     "test:cov": "nyc instrument test/ instrumented-test/ && nyc --reporter=lcov --reporter=text-lcov --reporter=html mocha instrumented-test/*  && rm -rf .nyc_output coverage/",
     "coverage": "nyc instrument test/ instrumented-test/ && nyc --reporter=text-lcov mocha instrumented-test/* | coveralls && rm -rf .nyc_output coverage/",
     "start": "electron ."
@@ -28,7 +28,7 @@
   "bugs": {
     "url": "https://github.com/20avva/AF-PFA-Calculator/issues"
   },
-  "homepage": "https://github.com/20avva/AF-PFA-Calculator#readme",
+  "homepage": "https://github.com/20avva/AF-PFA-Calculator",
   "dependencies": {
     "bootstrap": "^4.1.3",
     "jquery": "^3.3.1",

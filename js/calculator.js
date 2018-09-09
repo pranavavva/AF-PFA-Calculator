@@ -59,7 +59,7 @@ const getOutputs = () => {
 const calculateScores = () => {
 
     // Determine gender
-    if (gender == "Male") {
+    if ($gender == "male") {
 
 
         // Determine age
@@ -830,14 +830,14 @@ const calculateScores = () => {
             currentScore += 12.6;
         } else {
             currentScore += 0;
-            $rating.text("Unsatisfactory");
+            $rating.text("Unsatisfactory").addClass("text-danger");
             $acPoints.addClass("text-danger");
         }
 
-        $acPoints.text(currentScore + " / 20");
-        $acPoints.addClass("text-success");
+        $acPoints.text(currentScore + " / 20").addClass("text-success");
         compositeScore += currentScore;
         currentScore = 0.0;
+
 
 
     } else {
@@ -1577,9 +1577,10 @@ const calculateScores = () => {
             currentScore += 12.8;
         } else {
             currentScore += 0;
-            $rating.text("Unsatisfactory");
+            $rating.text("Unsatisfactory").addClass("text-danger");
             $acPoints.addClass("text-danger");
         }
+
         $acPoints.text(currentScore + " / 20").addClass("text-success");
         compositeScore += currentScore;
         currentScore = 0.0;
@@ -1587,7 +1588,7 @@ const calculateScores = () => {
 
 
 
-    if (rating == "Unsatisfactory") {
+    if ($rating.text() == "Unsatisfactory") {
         // The DOM is already updated
         // However, we will tell the user how close they were
         $total.text(compositeScore + " / 100").addClass("text-danger");

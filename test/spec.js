@@ -13,7 +13,7 @@ const timeout = 20000;
 chai.should();
 chai.use(chaiAsPromised);
 
-xdescribe("Application launch", function () {
+describe("Application launch", function () {
   this.timeout(timeout);
 
   this.beforeAll(function () {
@@ -51,7 +51,7 @@ xdescribe("Application launch", function () {
   });
 });
 
-xdescribe("DOM Structure", function () {
+describe("DOM Structure", function () {
   this.timeout(timeout);
 
   this.beforeAll(function() {
@@ -95,7 +95,6 @@ describe("Calculator Logic", function() {
   this.timeout(timeout);
 
   beforeEach(function() {
-    chaiAsPromised.transferPromiseness = this.app.transferPromiseness;
     this.app = new Application({
       path: electronPath,
       args: [appPath]
@@ -103,7 +102,11 @@ describe("Calculator Logic", function() {
     return this.app.start();
   });
 
-  this.afterAll(function() {
+  beforeEach(function() {
+    chaiAsPromised.transferPromiseness = this.app.transferPromiseness;
+  });
+
+  afterEach(function() {
     if (this.app && this.app.isRunning()) {
       return this.app.stop();
     }
@@ -120,13 +123,13 @@ describe("Calculator Logic", function() {
     pushups = 67;
     crunches = 58;
     return this.app.client
-      .selectByVisibleText("#gender", gender).getValue("option:checked").should.eventually.equal(gender)
-      .setValue("#age", age).getValue("#age").should.eventually.equal(age)
-      .setValue("#minutes", minutes).getValue("#minutes").should.eventually.equal(minutes)
-      .setValue("#seconds", seconds).getValue("#seconds").should.eventually.equal(seconds)
-      .setValue("#ac", ac).getValue("#ac").should.eventually.equal(ac)
-      .setValue("#pushups", pushups).getValue("#pushups").should.eventually.equal(pushups)
-      .setValue("#crunches", crunches).getValue("#crunches").should.eventually.equal(crunches)
+      .selectByVisibleText("#gender", "Male").getValue("option:checked").should.eventually.equal(gender)
+      .setValue("#age", age).getValue("#age").should.eventually.equal(age.toString())
+      .setValue("#minutes", minutes).getValue("#minutes").should.eventually.equal(minutes.toString())
+      .setValue("#seconds", seconds).getValue("#seconds").should.eventually.equal(seconds.toString())
+      .setValue("#ac", ac).getValue("#ac").should.eventually.equal(ac.toString())
+      .setValue("#pushups", pushups).getValue("#pushups").should.eventually.equal(pushups.toString())
+      .setValue("#crunches", crunches).getValue("#crunches").should.eventually.equal(crunches.toString())
       .click("#submit")
       .getText("#total").should.eventually.equal("100 / 100")
       .getAttribute("#total", "class").should.eventually.contain("text-success")
@@ -134,7 +137,7 @@ describe("Calculator Logic", function() {
       .getAttribute("#rating", "class").should.eventually.contain("text-success");
   });
 
-  it("Male, age = 30, Run Time = 12:16, AC = 36.0, Pushups = 51, crunches = 46; composite score = 82.2; rating = Satisfactory", function(){
+  it("Male, age = 30, Run Time = 12:16, AC = 36.0, Pushups = 51, crunches = 46; composite score = 84.9; rating = Satisfactory", function(){
     gender = "male";
     age = 30;
     minutes = 12;
@@ -143,15 +146,15 @@ describe("Calculator Logic", function() {
     pushups = 51;
     crunches = 46;
     return this.app.client
-      .selectByVisibleText("#gender", gender).getValue("option:checked").should.eventually.equal(gender)
-      .setValue("#age", age).getValue("#age").should.eventually.equal(age)
-      .setValue("#minutes", minutes).getValue("#minutes").should.eventually.equal(minutes)
-      .setValue("#seconds", seconds).getValue("#seconds").should.eventually.equal(seconds)
-      .setValue("#ac", ac).getValue("#ac").should.eventually.equal(ac)
-      .setValue("#pushups", pushups).getValue("#pushups").should.eventually.equal(pushups)
-      .setValue("#crunches", crunches).getValue("#crunches").should.eventually.equal(crunches)
+      .selectByVisibleText("#gender", "Male").getValue("option:checked").should.eventually.equal(gender.toString())
+      .setValue("#age", age).getValue("#age").should.eventually.equal(age.toString())
+      .setValue("#minutes", minutes).getValue("#minutes").should.eventually.equal(minutes.toString())
+      .setValue("#seconds", seconds).getValue("#seconds").should.eventually.equal(seconds.toString())
+      .setValue("#ac", ac).getValue("#ac").should.eventually.equal(ac.toString())
+      .setValue("#pushups", pushups).getValue("#pushups").should.eventually.equal(pushups.toString())
+      .setValue("#crunches", crunches).getValue("#crunches").should.eventually.equal(crunches.toString())
       .click("#submit")
-      .getText("#total").should.eventually.equal("82.2 / 100")
+      .getText("#total").should.eventually.equal("84.9 / 100")
       .getAttribute("#total", "class").should.eventually.contain("text-success")
       .getText("#rating").should.eventually.equal("Satisfactory")
       .getAttribute("#rating", "class").should.eventually.contain("text-success");
